@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "1u80ly79ed1e",
+      "username": "Prashant Kamble",
+      "email": "pra.kamble@gmail.com",
+      "password": "$2b$10$Jl9jwpW8aI3Q1.Ek0.dNGOsXJi4ialY0ZeAWIosDekYWMvLq65V1O",
+      "followers": 0,
+      "following": 0,
+      "posts": []
+    }
+  ]
+}
