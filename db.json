@@ -1,10 +1,37 @@
 {
   "users": [
     {
-      "id": "1u80ly79ed1e",
-      "username": "Prashant Kamble",
-      "email": "pra.kamble@gmail.com",
-      "password": "$2b$10$Jl9jwpW8aI3Q1.Ek0.dNGOsXJi4ialY0ZeAWIosDekYWMvLq65V1O",
+      "id": "13nzk5clyj9ccw4",
+      "username": "prashant",
+      "email": "prashant@gmail.com",
+      "password": "$2b$10$KZYz109mUnQVPogALglh/Op7QnpCazDqnVWkMJkPEH6euxahVOLwG",
+      "followers": 0,
+      "following": 0,
+      "posts": []
+    },
+    {
+      "id": "9t8lyjz48rp",
+      "username": "vivek",
+      "email": "vivek@gmail.com",
+      "password": "$2b$10$2pCZcslZDjXWqRZ.sIzqtOK/NwfVtSpMpEesrxe7Udfaybrbj9U9.",
+      "followers": 0,
+      "following": 0,
+      "posts": []
+    },
+    {
+      "id": "aeglyjz5u7o",
+      "username": "karuna",
+      "email": "karuna@gmail.com",
+      "password": "$2b$10$MFfE33Laj6rGq27naVutw.aPvaJbWRC.D/IvdUwDSxuYI98H9ZAvO",
+      "followers": 0,
+      "following": 0,
+      "posts": []
+    },
+    {
+      "id": "aeglyjz6l91",
+      "username": "harshit",
+      "email": "harshit@gmail.com",
+      "password": "$2b$10$T8YksTIlyNYKb/QpWENmF.MugBYJyDWTfVGsYnQX30r9zZl/celP6",
       "followers": 0,
       "following": 0,
       "posts": []

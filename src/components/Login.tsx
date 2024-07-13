@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from "./Authentcation.module.css";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -13,11 +13,14 @@ export default function Login() {
     const [error, setError] = useState<null | string>(null);
     const [success, setSuccess] = useState<null | string>(null);
 
+    useEffect(() => {
+        setEmail(email);
+        setPassword(password);
+    }, [email, password])
+
     const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        setEmail("");
-        setPassword("");
         setError(null);
+        e.preventDefault();
         try {
             const resp = await api.post("/auth/login", { email, password }, {
                 headers: {
@@ -28,15 +31,16 @@ export default function Login() {
             if (resp.status === 200 && resp.data) {
                 setSuccess("successfully logged in!");
                 setTimeout(() => {
-                    navigate(`/${resp.data.user.id}`);
+                    navigate(`/user/${resp.data.user.id}`);
                 }, 2000);
             } else {
                 throw new Error("An error occurred!");
             }
         } catch (err: any) {
+            console.log(err);
             if (err.response) {
-                setError(err.response.statusText);
-                console.log(err.response);
+                setError(err.response.data.error);
+
             } else {
                 setError(err.message);
             }
@@ -47,11 +51,12 @@ export default function Login() {
     return (
         <div className={style.container}>
             <h4>Login</h4>
-            <form className={style.form} action="">
+            {error ? <p className={`${style.error} ${style.popup}`}>{error}</p> : <p className={`${style.success} ${style.popup}`}>{success}</p>}
+            <form className={style.form} action="" onSubmit={handleSubmit}>
 
-                <input type="email" name="email" placeholder="email" id="email" />
+                <input type="email" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="email" id="email" />
 
-                <input type="password" name="password" placeholder="password" id="password" />
+                <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="password" id="password" />
                 <button type="submit">Login</button>
             </form>
             <Link to="/signup"><p>Create an account</p></Link>
