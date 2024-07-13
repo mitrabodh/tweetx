@@ -44,8 +44,7 @@ app.post("/auth/login", async (req, res) => {
         if (user) {
             const auth = await bcrypt.compare(password, user.password);
             if (auth) {
-                const token = createToken(user.id);
-                res.cookie("jwt", token, { httpOnly: true, maxAge: age * 1000 });
+
                 res.status(200).json({ user: user });
             } else {
                 throw new Error("Incorrect password!");
@@ -61,9 +60,13 @@ app.post("/auth/login", async (req, res) => {
     }
 })
 
-app.get("/user/:id", (req, res) => {
-    res.status(200).json(req.params.id);
+app.get("/users/:id", (req, res) => {
+    const token = createToken(req.params.id);
+    res.cookie("jwt", token, { httpOnly: true, maxAge: age * 1000 });
+    const user = users.find((usr) => usr.id === req.params.id);
+    res.status(200).json(user);
 })
+
 
 const PORT = process.env.PORT || 5000;
 

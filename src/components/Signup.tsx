@@ -49,18 +49,20 @@ export default function Signup() {
     }
 
     return (
-        <div className={style.container}>
-            <h4>Sign Up</h4>
-            {error ? <p className={`${style.error} ${style.popup}`}>{error}</p> : <p className={`${style.success} ${style.popup}`}>{success}</p>}
-            <form className={style.form} action="" onSubmit={handleSubmit}>
-                <input type="text" value={username} required placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
+        <div className={style.main}>
+            <div className={style.container}>
+                <h4>Sign Up</h4>
+                {error ? <p className={`${style.error} ${style.popup}`}>{error}</p> : <p className={`${style.success} ${style.popup}`}>{success}</p>}
+                <form className={style.form} action="" onSubmit={handleSubmit}>
+                    <input type="text" value={username} required placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
 
-                <input type="email" value={email} required name="Email" onChange={(e) => setEmail(e.target.value)} placeholder="email" id="email" />
+                    <input type="email" value={email} required name="Email" onChange={(e) => setEmail(e.target.value)} placeholder="email" id="email" />
 
-                <input type="password" value={password} required name="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" id="password" />
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>Already have an account?&nbsp;<Link to="/">Login</Link></p>
+                    <input type="password" value={password} required name="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" id="password" />
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account?&nbsp;<Link to="/">Login</Link></p>
+            </div>
         </div>
     );
 }

@@ -31,8 +31,8 @@ export default function Login() {
             if (resp.status === 200 && resp.data) {
                 setSuccess("successfully logged in!");
                 setTimeout(() => {
-                    navigate(`/user/${resp.data.user.id}`);
-                }, 2000);
+                    navigate(`/users/${resp.data.user.id}`);
+                }, 1000);
             } else {
                 throw new Error("An error occurred!");
             }
@@ -49,18 +49,20 @@ export default function Login() {
 
     }
     return (
-        <div className={style.container}>
-            <h4>Login</h4>
-            {error ? <p className={`${style.error} ${style.popup}`}>{error}</p> : <p className={`${style.success} ${style.popup}`}>{success}</p>}
-            <form className={style.form} action="" onSubmit={handleSubmit}>
+        <div className={style.main}>
+            <div className={style.container}>
+                <h4>Login</h4>
+                {error ? <p className={`${style.error} ${style.popup}`}>{error}</p> : <p className={`${style.success} ${style.popup}`}>{success}</p>}
+                <form className={style.form} action="" onSubmit={handleSubmit}>
 
-                <input type="email" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="email" id="email" />
+                    <input type="email" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="email" id="email" />
 
-                <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="password" id="password" />
-                <button type="submit">Login</button>
-            </form>
-            <Link to="/signup"><p>Create an account</p></Link>
+                    <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="password" id="password" />
+                    <button type="submit">Login</button>
+                </form>
+                <Link to="/signup"><p>Create an account</p></Link>
 
+            </div>
         </div>
     );
 }
